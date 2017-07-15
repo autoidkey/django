@@ -23,4 +23,11 @@ mysite/settings.pyの変更
 ../wsgi.pyの設定変更
 
 Heroku のinstall
+heroku login
+
+Git 
+
+Heroic command
+
+ 
 
