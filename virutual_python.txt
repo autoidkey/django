@@ -1,0 +1,26 @@
+Python -m vent myvenv
+django yuto$ source myvenv/bin/activate (仮想環境へアクセス)
+django-admin startproject mysite .
+python manage.py runserver
+python manage.py makemigrations “file_name” 
+python manage.py migrate “fn”
+python manage.py createsuperuser
+
+デプロイ:インターネットで公開
+pip freeze > requirements.txt
+あなたのサーバーにどんなPythonパッケージがインストールされる必要があるか、Herokuに伝えるものです。
+
+Profile 作成
+web: gunicorn mysite.wsgi
+
+Runtime.txt 作成
+
+コンピューター上のローカルとサーバーでは設定に違いがあります。Herokuとコンピューターでは別のデータベースをそれぞれつかっています。そこで、別途ファイルを作成し、ローカル環境で動かすための設定を保存しておく必要があります。
+mysite/local_settings.py
+
+mysite/settings.pyの変更
+
+../wsgi.pyの設定変更
+
+Heroku のinstall
+
