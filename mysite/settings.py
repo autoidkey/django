@@ -123,7 +123,7 @@ STATIC_URL = '/static/'
 
 #add sentences
 
-DATABASE['default'] = dj_database_url.config()
+DATABASES['default'] = dj_database_url.config()
 
 SECURE_PROXY_SSL_HEADER = ('HHTP_X_FOWARDED_PROTO','https')
 
