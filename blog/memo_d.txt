@@ -1,0 +1,2 @@
+urls.pyでurl管理
+views.pyで接続
