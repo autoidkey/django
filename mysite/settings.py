@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-import dj_database_url #add
+#add
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog' #add
+    'blog', #add
 ]
 
 MIDDLEWARE = [
@@ -121,8 +121,23 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 
-#add sentences
+import dj_database_url
+DATABASES['default'] = dj_database_url.config()
 
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+ALLOWED_HOSTS = ['*']
+
+STATIC_ROOT = 'staticfiles'
+
+DEBUG = False
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
+#add sentences
+'''
 DATABASES['default'] = dj_database_url.config()
 
 SECURE_PROXY_SSL_HEADER = ('HHTP_X_FOWARDED_PROTO','https')
@@ -137,4 +152,4 @@ try:
     from .local_settings import *
 except ImportError:
     pass
-
+'''
