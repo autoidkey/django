@@ -3,5 +3,5 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.post_list),
-    url(r'^$', views.memo),
+    url(r'^memo', views.memo),
 ]
