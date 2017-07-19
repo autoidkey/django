@@ -6,3 +6,6 @@ def post_list(request):
 
 def memo(request):
     return render(request, 'blog/memo.html', {})
+
+def temp(request):
+    return render(request, 'blog/temp.html', {})

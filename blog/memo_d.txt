@@ -1,2 +1,3 @@
 urls.pyでurl管理
 views.pyで接続
+Mysite/ulrs.pyも変更する必要あり

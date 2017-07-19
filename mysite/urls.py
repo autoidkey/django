@@ -21,4 +21,5 @@ urlpatterns = [
     #url(r'^admin/', admin.site.urls),
     url(r'', include('blog.urls')), #add
     url(r'^memo', include('blog.urls')),
+    url(r'^temp', include('blog.urls')),
 ]

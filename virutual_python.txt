@@ -28,6 +28,6 @@ heroku login
 Git 
 
 Heroic command
+heroku open
 
- 
 
