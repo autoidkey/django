@@ -23,5 +23,7 @@ urlpatterns = [
     url(r'^memo', include('blog.urls')),
     url(r'^temp', include('blog.urls')),
     url(r'^post/(?P<post_id>[0-9]+)/$', include('blog.urls')),
-    
+    url(r'^post/new/$', include('blog.urls')),
+    url(r'^post/(?P<pk>[0-9]+)/edit/$', include('blog.urls')),
+
 ]
