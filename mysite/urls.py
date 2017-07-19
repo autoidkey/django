@@ -23,4 +23,5 @@ urlpatterns = [
     url(r'^memo', include('blog.urls')),
     url(r'^temp', include('blog.urls')),
     url(r'^post/(?P<post_id>[0-9]+)/$', include('blog.urls')),
+    
 ]
