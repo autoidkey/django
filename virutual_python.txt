@@ -26,6 +26,9 @@ Heroku のinstall
 heroku login
 
 Git 
+Git add -A .
+Git commit -m “com”
+Git push heroku master
 
 Heroic command
 heroku open

@@ -136,6 +136,10 @@ try:
     from .local_settings import *
 except ImportError:
     pass
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+)
 #add sentences
 '''
 DATABASES['default'] = dj_database_url.config()

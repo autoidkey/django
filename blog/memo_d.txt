@@ -1,3 +1,18 @@
 urls.pyでurl管理
 views.pyで接続
 Mysite/ulrs.pyも変更する必要あり
+
+About queryset
+python manage.py shell (起動)
+from blog.models import Post
+Post.objects.all()
+Post.objects.filter(title__contains='title')
+Post.objects.order_by('created_date')
+
+from django.contrib.auth.models import User
+ User.objects.all()
+me = User.objects.get(username='ola')
+Post.objects.create(author = me, title = 'Sample title', text = 'Test')
+
+from django.utils import timezone
+Post.objects.filter(published_date__lte=timezone.now())
