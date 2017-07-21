@@ -8,15 +8,16 @@
         <link href="http://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <div class="page-header">
-        <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+    <div class="page-header">
+        <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus">new</span></a>
         <h1><a href="/">Django Blog</a></h1>
     </div>
     <div>
             {% for post in posts %}
                 {{ post }}
             {% endfor %}
-        </div>
+        Welcom
+    </div>
     <div class="content container">
         <div class="row">
             <div class="col-md-8">
