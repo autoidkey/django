@@ -15,6 +15,7 @@ def temp(request):
 	return render(request, 'blog/temp.html', {})
 
 def post_detail(request, pk):
+    print(pk)
     post = get_object_or_404(Post, pk=pk)
     return render(request, 'blog/post_detail.html', {'post': post})
 
