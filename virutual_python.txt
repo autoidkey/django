@@ -1,10 +1,13 @@
 Python -m vent myvenv
 django yuto$ source myvenv/bin/activate (仮想環境へアクセス)
-django-admin startproject mysite .
-python manage.py runserver
+django-admin startproject (project_name)  (プロジェクト作成)
+実行ディレクトリにproject_nameのディレクトリが作成
+python manage.py runserver (仮想環境で動かす)
 python manage.py makemigrations “file_name” 
 python manage.py migrate “fn”
 python manage.py createsuperuser
+
+python manage.py startapp (application_name)
 
 デプロイ:インターネットで公開
 pip freeze > requirements.txt
@@ -19,6 +22,11 @@ Runtime.txt 作成
 mysite/local_settings.py
 
 mysite/settings.pyの変更
+ここでアプリを有効にする
+
+Modelを定義したり変更した時は、忘れずにマイグレーションを行いましょう
+(virtualenv)$ python manage.py makemigrations
+(virtualenv)$ python manage.py migrate
 
 ../wsgi.pyの設定変更
 
@@ -33,4 +41,11 @@ Git push heroku master
 Heroic command
 heroku open
 
+削除はそのまま消す
 
+＊　このディレクトリはmysiteの一部です
+階層としては
+start_project
+- start_application
+- manage.py
+- project_name_directory (全体の設定?)
