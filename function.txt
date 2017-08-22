@@ -1,0 +1,14 @@
+*render
+(request, template[, dictionary][, context_instance][, content_type][, status][, current_app])
+request
+レスポンスを生成する時に使われるリクエストオブジェクト。
+template
+テンプレートの完全名か、テンプレート名のシーケンス。
+dictionary
+テンプレートコンテキストに追加したい値の入った辞書です。デフォルトでは、 この引数は空の辞書です。辞書の値が呼出可能オブジェクトである場合、ビュー はテンプレートをレンダするの直前にこの値を呼び出します。
+context_instance
+テンプレートをレンダする時に使われるコンテキストインスタンス。デフォル トではテンプレートは RequestContext インスタンス (request と dictionary の値が入っています) によってレンダリングされます。
+content_type
+レンダ結果のドキュメントに対して指定する MIME タイプです。デフォルトの 値として、 DEFAULT_CONTENT_TYPE を使います。
+status
+レスポンスのステータスコード。デフォルトは 200 。

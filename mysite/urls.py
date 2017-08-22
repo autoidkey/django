@@ -19,12 +19,15 @@ from django.contrib import admin
 urlpatterns = [
 	url(r'^admin/', include(admin.site.urls)),
     #url(r'^admin/', admin.site.urls),
-    url(r'^$', include('blog.urls')), #add
-    url(r'^memo', include('blog.urls')),
-    url(r'^temp', include('blog.urls')),
+    url(r'^', include('blog.urls')), #add
+    #url(r'^', include('blog.urls')),
+    url(r'^memo/', include('blog.urls')),
+    url(r'^temp/', include('blog.urls')),
     url(r'^post/(?P<pk>[0-9]+)/', include('blog.urls')),
     url(r'^post/new/', include('blog.urls')),
     url(r'^post/(?P<pk1>[0-9]+)/edit/', include('blog.urls')),
     url(r'^guestboard/', include('guestboard.urls', namespace='guestboard')),  #add guestboard
 
 ]
+
+#^ :文字列開始 $:文字列終わり
