@@ -2,7 +2,9 @@
 
 {% block content %}
     <h1>New post</h1>
+    <!-- form で窓枠作成 methodを指定しないと送信が行われない-->
     <form method="POST" class="post-form">{% csrf_token %}
+    <!-- form.as_p を参照すると、各フィールドとラベルをパラグラフ (<p>) タグ で囲って出力します -->
         {{ form.as_p }}
         <button type="submit" class="save btn btn-default">Save</button>
     </form>

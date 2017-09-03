@@ -1,0 +1,30 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>MyPage</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/my_page.css' %}">
+    </head>
+    <body>
+    <div class="page-header">
+        <a href="" class="top-menu"><span class="glyphicon glyphicon-plus">Interest</span></a>
+        <a href="" class="top-menu"><span class="glyphicon glyphicon-plus">Trend</span></a>
+        <a href="" class="top-menu"><span class="glyphicon glyphicon-plus">Task</span></a>
+        <h1><a href="">My Page!!</a></h1>
+    </div>
+    <div>
+            {% for post in posts %}
+                {{ post }}
+            {% endfor %}
+        Welcom
+    </div>
+    {% block content %}
+    {% endblock %}
+
+  {% block js %}
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  {% endblock %}
+    </body>
+</html>

@@ -24,7 +24,7 @@ mysite/local_settings.py
 mysite/settings.pyの変更
 ここでアプリを有効にする
 
-Modelを定義したり変更した時は、忘れずにマイグレーションを行いましょう
+Modelを定義したり変更した時は、忘れずにマイグレーションを行いましょう(ここ大事 DBのこと)
 (virtualenv)$ python manage.py makemigrations
 (virtualenv)$ python manage.py migrate
 

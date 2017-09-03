@@ -17,11 +17,9 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
-'''
-class Post(models.Model):
-    author = models.ForeignKey('auth.User')
-    title = models.CharField(max_length=200)
-    text = models.TextField()
+class My_post(models.Model):
+    title = models.CharField(max_length=200,verbose_name='タイトル')
+    text = models.TextField(verbose_name='書くとこ')
     created_date = models.DateTimeField(
             default=timezone.now)
     published_date = models.DateTimeField(
@@ -33,4 +31,3 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
-'''

@@ -1,0 +1,59 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>tesr</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/my_page.css' %}">
+    </head>
+    <body>
+    <div class="page-header">
+        <a href="" class="top-menu"><span class="glyphicon glyphicon-plus">Interest</span></a>
+        <a href="" class="top-menu"><span class="glyphicon glyphicon-plus">Trend</span></a>
+        <a href="" class="top-menu"><span class="glyphicon glyphicon-plus">Task</span></a>
+        <h1><a href="">Test Page!!</a></h1>
+    </div>
+    <div>
+            {% for post in posts %}
+                {{ post }}
+            {% endfor %}
+        Welcom
+    </div>
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+            {% block content %}
+            {% endblock %}
+            <form method="POST" class="post-form">{% csrf_token %}
+            <!-- form.as_p を参照すると、各フィールドとラベルをパラグラフ (<p>) タグ で囲って出力します -->
+            {{ form.as_p }}
+            <button type="submit" class="save btn btn-default">Save</button>
+            </form>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <p>履歴</p>
+    <div class="container">
+    <div class="row">
+      <div class="col-sm-8">
+        {% for posting in post %}
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">{{ posting.title }} <label class="date">投稿日時：{{ posting.created_date }}</label><a class="btn btn-default"><span class="glyphicon glyphicon-remove"></span></a>
+            </div>
+            <div class="panel-body">
+              {{ posting.text }}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    </div>
+
+  {% block js %}
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  {% endblock %}
+    </body>
+</html>

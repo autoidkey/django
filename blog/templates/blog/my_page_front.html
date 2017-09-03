@@ -1,0 +1,34 @@
+{% extends 'blog/my_page_base.html' %}
+{% block content %}
+<!-- postsはviews.pyで設定された変数-->
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+            	<p>ふろんと！</p>
+    			<form method="POST" class="post-form">{% csrf_token %}
+     			<!-- form.as_p を参照すると、各フィールドとラベルをパラグラフ (<p>) タグ で囲って出力します -->
+        		{{ form.as_p }}
+        		<button type="submit" class="save btn btn-default">Save</button>
+    			</form>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <p>履歴</p>
+    <div class="container">
+    <div class="row">
+      <div class="col-sm-8">
+        {% for posting in post %}
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">{{ posting.title }} <label class="date">投稿日時：{{ posting.created_date }}</label></h3>
+            </div>
+            <div class="panel-body">
+              {{ posting.text }}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock content %}
