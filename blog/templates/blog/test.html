@@ -38,14 +38,17 @@
     <div class="row">
       <div class="col-sm-8">
         {% for posting in post %}
+        <form action="{% url 'delete' otitle=posting.title%}" method="post">{% csrf_token %}
           <div class="panel panel-primary">
             <div class="panel-heading">
-              <h3 class="panel-title">{{ posting.title }} <label class="date">投稿日時：{{ posting.created_date }}</label><a class="btn btn-default"><span class="glyphicon glyphicon-remove"></span></a>
+              <h3 class="panel-title">{{ posting.title }} <label class="date">投稿日時：{{ posting.created_date }}</label><input type="submit" name="button" value="削除">
+              </h3>
             </div>
             <div class="panel-body">
               {{ posting.text }}
             </div>
           </div>
+        </form>
         {% endfor %}
       </div>
     </div>

@@ -10,5 +10,5 @@ urlpatterns = [
     url(r'^post/(?P<pk>[0-9]+)/edit/$', views.post_edit, name='post_edit'),
     url(r'^test/',views.test,name='test'),
     url(r'^mypage/',views.mypage,name='mypage'),
-    #url(r'^delete/',views.delete,name='delete')
+    url(r'^delete/(?P<otitle>.*)',views.delete,name='delete'), #消すと削除できなくなる
 ]

@@ -53,10 +53,11 @@ def post_edit(request, pk):
 			post.save()
 			return redirect('post_detail', pk=post.pk)
 	else:
-		#維持
+		#他のページから飛んできた時
 		form = PostForm(instance=post)
 	return render(request, 'blog/post_edit.html', {'form': form})
 
+########################################
 def mypage(request):
 	form = My_postform(request.POST or None)
 	if request.method == 'POST':
@@ -76,21 +77,24 @@ def mypage(request):
 
 	return render(request, 'blog/my_page_front.html',contexts)
 
-'''	
+
 def delete(request,otitle):
-    if request.method == 'POST':
-        # ボタンがクリックされた場合の処理
-        #My_post.objects.filter(title=otitle).delete()
-        print(My_post.objects)
-    return render(request, 'blog/test.html')
-    <!-- <a class="btn btn-default" href="{% url 'delete' otitle=posting.title %}"><span class="glyphicon glyphicon-pencil"></span></a> -->
-'''
+	if request.method == 'POST':
+		# ボタンがクリックされた場合の処理
+		if 'button' in request.POST:
+			print("delete!")
+			messages.success(request,'デリート!')
+			My_post.objects.filter(title=otitle).delete()
+			return redirect('mypage')
+	return render(request, 'blog/my_page_front.html')
+
 
 #テスト用
 def test(request):
-	print(request)
+	print("リクエスト:",request.POST)
 	form = My_postform(request.POST or None)
-	print("ok1")
+	#書き込みなどできた場合
+	print(request.method)
 	if request.method == 'POST':
 		print("write!!")
 		if form.is_valid():
@@ -100,12 +104,14 @@ def test(request):
 			return redirect('test')
 		else :
 			messages.error(request,'エラー')
+	else :
+		print("remain")
 	post = My_post.objects.order_by('published_date')
 
 	contexts = {
 		'form': form,
 		'post': post,
 	}
-	print(contexts)
+	#print(contexts)
 
 	return render(request, 'blog/test.html',contexts)

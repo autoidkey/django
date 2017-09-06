@@ -38,6 +38,14 @@ Git add -A .
 Git commit -m “com”
 Git push heroku master
 
+以上の操作が終わったら、コミットしてあげて、下記のコマンドを打てばHerokuへデプロイできます
+ただし、DBが作成されてないので、マイグレーションを行なってあげます
+そしたら、ブラウザで見てあげるために、「heroku open」してあげればHeroku上で動作しているのが確認できるはずです
+
+$ git push heroku master
+$ heroku run python manage.py migrate
+$ heroku open
+
 Heroic command
 heroku open
 
