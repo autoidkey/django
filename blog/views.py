@@ -88,7 +88,9 @@ def delete(request,otitle):
 
 #テスト用
 def test(request):
+	print(request)
 	form = My_postform(request.POST or None)
+	print("ok1")
 	if request.method == 'POST':
 		print("write!!")
 		if form.is_valid():
@@ -104,5 +106,6 @@ def test(request):
 		'form': form,
 		'post': post,
 	}
+	print(contexts)
 
 	return render(request, 'blog/test.html',contexts)
