@@ -65,7 +65,7 @@ def mypage(request):
 		if form.is_valid():
 			form.save()
 			messages.success(request,'お疲れ様でした')
-			return redirect('test')
+			return redirect('mypage')
 		else :
 			messages.error(request,'エラー')
 	post = My_post.objects.order_by('published_date')
@@ -88,6 +88,9 @@ def delete(request,otitle):
 			return redirect('mypage')
 	return render(request, 'blog/my_page_front.html')
 
+def input_trend(request,input):
+	print("trend")
+	return render(request, 'blog/my_page_front.html')
 
 #テスト用
 def test(request):
