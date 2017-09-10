@@ -13,37 +13,40 @@
   <li class="dropdown">
     <a href="#" class="dropdown-toggle mydropper" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-plus">Task</span></a>
     <ul class="dropdown-menu">
-      <li class="dropdown-header">Header</li>
-      <li>Another action</li>
-      <li><a href="#">Something else here</a></li>
-      <li role="separator" class="divider"></li>
-      <li><a href="#">Separated link</a></li>
-      <li class="disabled"><a href="#">Disabled link</a></li>
+    {% for tasking in post_task %}
+      <li><a href="#"><form action="{% url 'delete' otitle=tasking.topic%}" method="post">{% csrf_token %}{{ tasking.topic }}<button type="submit" name="del_task" class="glyphicon glyphicon-remove　del_button"></button></form></a></li>
+    {% endfor %}
+      <li><form method="POST" class="post-form">{% csrf_token %}
+            {{ task.as_p }}
+            <button type="submit" class="save btn btn-default" name="task">Save</button>
+            </form></li>
     </ul>
   </li>
+
   <li class="dropdown">
     <a href="#" class="dropdown-toggle mydropper" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-plus">Trend</span></a>
     <ul class="dropdown-menu">
-      <li class="dropdown-header">Header</li>
-      <li>Another action</li>
-      <li><a href="#">Something else here</a></li>
-      <li role="separator" class="divider"></li>
-      <li><a href="#">Separated link</a></li>
-      <li class="disabled"><a href="#">Disabled link</a></li>
+    {% for trending in post_trend %}
+      <li><a href="#"><form action="{% url 'delete' otitle=trending.topic%}" method="post">{% csrf_token %}{{ trending.topic }}<button type="submit" name="del_trend" class="glyphicon glyphicon-remove　del_button"></button></form></a></li>
+    {% endfor %}
+      <li><form method="POST" class="post-form">{% csrf_token %}
+            {{ trend.as_p }}
+            <button type="submit" class="save btn btn-default" name="trend">Save</button>
+            </form></li>
     </ul>
   </li>
+
   <li class="dropdown">
     <a href="#" class="dropdown-toggle mydropper" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-plus">Interest</span></a>
     <ul class="dropdown-menu">
-      <li class="dropdown-header">Header</li>
-      <li>Another action</li>
-      <li><a href="#">Something else here</a></li>
-      <li role="separator" class="divider"></li>
-      <li><a href="#">Separated link</a></li>
-      <li class="disabled"><a href="#">Disabled link</a></li>
+    {% for interesting in post_interest %}
+      <li><a href="#"><form action="{% url 'delete' otitle=interesting.topic%}" method="post">{% csrf_token %}{{ interesting.topic }}<button type="submit" name="del_interest" class="glyphicon glyphicon-remove　del_button"></button></form></a></li>
+    {% endfor %}
+      <li><form method="POST" class="post-form">{% csrf_token %}
+            {{ interest.as_p }}
+            <button type="submit" class="save btn btn-default" name="interest">Save</button>
+            </form></li>
     </ul>
-  </li>
-  </ul>
     </div>
     <!--
     <ul class="nav nav-pills">
@@ -83,9 +86,6 @@
 </ul>
 -->
     <div>
-            {% for post in posts %}
-                {{ post }}
-            {% endfor %}
         Welcom
     </div>
     <div class="content container">
@@ -96,7 +96,7 @@
             <form method="POST" class="post-form">{% csrf_token %}
             <!-- form.as_p を参照すると、各フィールドとラベルをパラグラフ (<p>) タグ で囲って出力します -->
             {{ form.as_p }}
-            <button type="submit" class="save btn btn-default">Save</button>
+            <button type="submit" class="save btn btn-default" name="save">Save</button>
             </form>
             </div>
         </div>
@@ -110,7 +110,7 @@
         <form action="{% url 'delete' otitle=posting.title%}" method="post">{% csrf_token %}
           <div class="panel panel-primary">
             <div class="panel-heading">
-              <h3 class="panel-title">{{ posting.title }} <label class="date">投稿日時：{{ posting.created_date }}</label><input type="submit" name="button" value="削除">
+              <h3 class="panel-title">{{ posting.title }} <label class="date">投稿日時：{{ posting.created_date }}</label><button type="submit" name="button_del"><i class="glyphicon glyphicon-ok"></i></button>
               </h3>
             </div>
             <div class="panel-body">

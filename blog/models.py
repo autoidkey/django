@@ -31,10 +31,44 @@ class My_post(models.Model):
 
     def __str__(self):
         return self.title
-'''
-class My_trend(models.Model):
-    topic = models.CharField(max_length=50)
+
+class My_task(models.Model):
+    topic = models.CharField(max_length=50,verbose_name='new↓')
+    created_date = models.DateTimeField(
+            default=timezone.now)
+    published_date = models.DateTimeField(
+            blank=True, null=True)
+
+    def publish(self):
+        self.published_date = timezone.now()
+        self.save()
 
     def __str__(self):
         return self.topic
-'''
+class My_trend(models.Model):
+    topic = models.CharField(max_length=50,verbose_name='new↓')
+    created_date = models.DateTimeField(
+            default=timezone.now)
+    published_date = models.DateTimeField(
+            blank=True, null=True)
+
+    def publish(self):
+        self.published_date = timezone.now()
+        self.save()
+
+    def __str__(self):
+        return self.topic
+
+class My_interest(models.Model):
+    topic = models.CharField(max_length=50,verbose_name='new↓')
+    created_date = models.DateTimeField(
+            default=timezone.now)
+    published_date = models.DateTimeField(
+            blank=True, null=True)
+
+    def publish(self):
+        self.published_date = timezone.now()
+        self.save()
+
+    def __str__(self):
+        return self.topic

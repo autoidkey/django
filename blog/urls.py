@@ -11,5 +11,7 @@ urlpatterns = [
     url(r'^test/',views.test,name='test'),
     url(r'^mypage/',views.mypage,name='mypage'),
     url(r'^delete/(?P<otitle>.*)',views.delete,name='delete'), #消すと削除できなくなる
-    #url(r'^trend/(?P<input>.*)',views.input_trend,name='trend'),
+    url(r'^trend/(?P<input>.*)',views.input_trend,name='trend'),
+    url(r'^task/(?P<input>.*)',views.input_trend,name='task'),
+    url(r'^interest/(?P<input>.*)',views.input_trend,name='interest'),
 ]

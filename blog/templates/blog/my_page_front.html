@@ -8,7 +8,7 @@
     			<form method="POST" class="post-form">{% csrf_token %}
      			<!-- form.as_p を参照すると、各フィールドとラベルをパラグラフ (<p>) タグ で囲って出力します -->
         		{{ form.as_p }}
-        		<button type="submit" class="save btn btn-default">Save</button>
+        		<button type="submit" class="save btn btn-default" name="save">Save</button>
     			</form>
             </div>
         </div>
@@ -22,7 +22,7 @@
         <form action="{% url 'delete' otitle=posting.title%}" method="post">{% csrf_token %}
           <div class="panel panel-primary">
             <div class="panel-heading">
-              <h3 class="panel-title">{{ posting.title }} <label class="date">投稿日時：{{ posting.created_date }}</label><input type="submit" name="button" value="削除">
+              <h3 class="panel-title">{{ posting.title }} <label class="date">投稿日時：{{ posting.created_date }}</label><button type="submit" name="button_del"><i class="glyphicon glyphicon-ok"></i></button>
               </h3>
             </div>
             <div class="panel-body">

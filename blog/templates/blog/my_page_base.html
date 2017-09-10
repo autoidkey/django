@@ -8,15 +8,47 @@
     </head>
     <body>
     <div class="page-header">
-        <a href="" class="top-menu"><span class="glyphicon glyphicon-plus">Interest</span></a>
-        <a href="" class="top-menu"><span class="glyphicon glyphicon-plus">Trend</span></a>
-        <a href="" class="top-menu"><span class="glyphicon glyphicon-plus">Task</span></a>
-        <h1><a href="">My Page!!</a></h1>
+        <ul class="nav nav-pills nav-right">
+  <li><h1>My Page!!</h1></li>
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle mydropper" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-plus">Task</span></a>
+    <ul class="dropdown-menu">
+    {% for tasking in post_task %}
+      <li><a href="#"><form action="{% url 'delete' otitle=tasking.topic%}" method="post">{% csrf_token %}{{ tasking.topic }}<button type="submit" name="del_task" class="glyphicon glyphicon-remove　del_button"></button></form></a></li>
+    {% endfor %}
+      <li><form method="POST" class="post-form">{% csrf_token %}
+            {{ task.as_p }}
+            <button type="submit" class="save btn btn-default" name="task">Save</button>
+            </form></li>
+    </ul>
+  </li>
+
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle mydropper" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-plus">Trend</span></a>
+    <ul class="dropdown-menu">
+    {% for trending in post_trend %}
+      <li><a href="#"><form action="{% url 'delete' otitle=trending.topic%}" method="post">{% csrf_token %}{{ trending.topic }}<button type="submit" name="del_trend" class="glyphicon glyphicon-remove　del_button"></button></form></a></li>
+    {% endfor %}
+      <li><form method="POST" class="post-form">{% csrf_token %}
+            {{ trend.as_p }}
+            <button type="submit" class="save btn btn-default" name="trend">Save</button>
+            </form></li>
+    </ul>
+  </li>
+
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle mydropper" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-plus">Interest</span></a>
+    <ul class="dropdown-menu">
+    {% for interesting in post_interest %}
+      <li><a href="#"><form action="{% url 'delete' otitle=interesting.topic%}" method="post">{% csrf_token %}{{ interesting.topic }}<button type="submit" name="del_interest" class="glyphicon glyphicon-remove　del_button"></button></form></a></li>
+    {% endfor %}
+      <li><form method="POST" class="post-form">{% csrf_token %}
+            {{ interest.as_p }}
+            <button type="submit" class="save btn btn-default" name="interest">Save</button>
+            </form></li>
+    </ul>
     </div>
     <div>
-            {% for post in posts %}
-                {{ post }}
-            {% endfor %}
         Welcom
     </div>
     {% block content %}
