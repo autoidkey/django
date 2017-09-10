@@ -69,7 +69,7 @@ def mypage(request):
 				form.save()
 				print(form.fields)
 				messages.success(request,'お疲れ様でした')
-				return redirect('test')
+				return redirect('mypage')
 		elif 'trend' in request.POST:
 			trend = My_trendform(request.POST)
 			print("write_tr!!")
@@ -77,7 +77,7 @@ def mypage(request):
 				trend.save()
 				#print(form.fields)
 				messages.success(request,'お疲れ様でした')
-				return redirect('test')
+				return redirect('mypage')
 		elif 'task' in request.POST:
 			task = My_taskform(request.POST)
 			print("write_ta!!")
@@ -85,7 +85,7 @@ def mypage(request):
 				task.save()
 				#print(form.fields)
 				messages.success(request,'お疲れ様でした')
-				return redirect('test')
+				return redirect('mypage')
 		elif 'interest' in request.POST:
 			interest = My_interestform(request.POST)
 			print("write_in!!")
@@ -93,7 +93,7 @@ def mypage(request):
 				interest.save()
 				#print(form.fields)
 				messages.success(request,'お疲れ様でした')
-				return redirect('test')
+				return redirect('mypage')
 		else :
 			#form = My_postform()
 			messages.error(request,'エラー')
@@ -121,7 +121,7 @@ def mypage(request):
 	}
 	#print(contexts)
 
-	return render(request, 'blog/test.html',contexts)
+	return render(request, 'blog/my_page_front.html',contexts)
 
 
 def delete(request,otitle):
