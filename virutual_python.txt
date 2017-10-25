@@ -57,3 +57,4 @@ start_project
 - start_application
 - manage.py
 - project_name_directory (全体の設定?)
+
